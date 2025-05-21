@@ -1,0 +1,137 @@
+/* Resetando algumas configurações padrão */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilo geral */
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #74ebd5, #acb6e5);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.container {
+    background-color: white;
+    padding: 30px 40px;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 500px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Título */
+h1 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Botões de categoria */
+#category-selection button {
+    background-color: #6c63ff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 10px 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.3s;
+}
+
+#category-selection button:hover {
+    background-color: #574fd6;
+}
+
+/* Quiz */
+.hidden {
+    display: none;
+}
+
+#question {
+    margin-bottom: 20px;
+    color: #555;
+}
+
+.btn-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+#answer-buttons button {
+    background-color: #e0e0e0;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+    font-size: 16px;
+}
+
+#answer-buttons button:hover {
+    background-color: #d5d5d5;
+}
+
+/* Botão Próxima */
+#next-btn {
+    margin-top: 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#next-btn:hover {
+    background-color: #45a049;
+}
+
+/* Timer */
+#timer {
+    margin-top: 10px;
+    font-size: 18px;
+    color: #333;
+}
+
+/* Resultado final */
+#result {
+    margin-top: 20px;
+}
+
+#result p {
+    font-size: 18px;
+    margin: 10px 0;
+}
+/* Cores para respostas certas e erradas */
+.correct {
+    background-color: #4CAF50 !important; /* Verde para certo */
+    color: white;
+}
+
+.wrong {
+    background-color: #f44336 !important; /* Vermelho para errado */
+    color: white;
+}
+/* Animação suave na troca de perguntas */
+.fade-in {
+    animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
