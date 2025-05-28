@@ -1,4 +1,3 @@
-// Perguntas separadas por categoria
 const questions = {
     matematica: [
         {
@@ -42,14 +41,14 @@ const questions = {
     ]
 };
 
-// Variáveis de controle
+
 let currentCategory = '';
 let currentQuestionIndex = 0;
 let score = 0;
 let timer;
 let timeLeft = 10;
 
-// Pegando os elementos HTML
+ HTML
 const categorySelection = document.getElementById('category-selection');
 const quizContainer = document.getElementById('quiz');
 const questionElement = document.getElementById('question');
@@ -59,7 +58,7 @@ const resultContainer = document.getElementById('result');
 const scoreElement = document.getElementById('score');
 const timerElement = document.getElementById('time');
 
-// Função para iniciar o quiz
+
 function startQuiz(category) {
     currentCategory = category;
     currentQuestionIndex = 0;
@@ -70,15 +69,13 @@ function startQuiz(category) {
     showQuestion();
 }
 
-// Função para mostrar uma pergunta
 function showQuestion() {
     resetState();
     startTimer();
     const questionData = questions[currentCategory][currentQuestionIndex];
     questionElement.innerText = questionData.question;
-
-    questionElement.classList.add('fade-in'); // Adiciona animação
-    setTimeout(() => questionElement.classList.remove('fade-in'), 500); // Remove depois de 0.5s
+animação
+    setTimeout(() => questionElement.classList.remove('fade-in'), 500); Remove 
 
     questionData.answers.forEach(answer => {
         const button = document.createElement('button');
@@ -92,7 +89,6 @@ function showQuestion() {
     });
 }
 
-// Função para resetar o estado antes de mostrar a próxima pergunta
 function resetState() {
     clearStatusClass(document.body);
     nextButton.classList.add('hidden');
@@ -104,7 +100,6 @@ function resetState() {
     timerElement.innerText = timeLeft;
 }
 
-// Função para o timer
 function startTimer() {
     timer = setInterval(() => {
         timeLeft--;
@@ -116,8 +111,6 @@ function startTimer() {
         }
     }, 1000);
 }
-
-// Função para escolher a resposta
 function selectAnswer(e) {
     const selectedButton = e.target;
     const correct = selectedButton.dataset.correct === 'true';
@@ -135,7 +128,6 @@ function selectAnswer(e) {
     nextButton.classList.remove('hidden');
 }
 
-// Função para mudar a cor dos botões
 function setStatusClass(element, correct) {
     clearStatusClass(element);
     if (correct) {
@@ -145,20 +137,18 @@ function setStatusClass(element, correct) {
     }
 }
 
-// Limpa classes
+
 function clearStatusClass(element) {
     element.classList.remove('correct');
     element.classList.remove('wrong');
 }
 
-// Desabilita todos os botões
 function disableButtons() {
     Array.from(answerButtons.children).forEach(button => {
         button.disabled = true;
     });
 }
 
-// Função para ir para a próxima pergunta
 function nextQuestion() {
     currentQuestionIndex++;
     if (currentQuestionIndex < questions[currentCategory].length) {
@@ -168,20 +158,84 @@ function nextQuestion() {
     }
 }
 
-// Função para terminar o quiz
 function endQuiz() {
     clearInterval(timer);
     quizContainer.classList.add('hidden');
     resultContainer.classList.remove('hidden');
 
     scoreElement.innerText = 'Você acertou ${score} de ${questions[currentCategory].length} perguntas!';
-    resultContainer.classList.add('fade-in'); // Animação no resultado
-    setTimeout(() => resultContainer.classList.remove('fade-in'), 500); // Remove depois de 0.5s
+    resultContainer.classList.add('fade-in'); 
+    setTimeout(() => resultContainer.classList.remove('fade-in'), 500); 
 }
-
-// Função para recomeçar o quiz
 function restartQuiz() {
     categorySelection.classList.remove('hidden');
     quizContainer.classList.add('hidden');
     resultContainer.classList.add('hidden');
+}
+
+
+function selectAnswer(e) {
+    const selectedButton = e.target;
+    const correct = selectedButton.dataset.correct === 'true';
+    if (correct) {
+        score++;
+    }
+    setStatusClass(selectedButton, correct);
+    Array.from(answerButtons.children).forEach(button => {
+        button.disabled = true;
+        if (button.dataset.correct === 'true') {
+            button.classList.add('correct');
+        }
+    });
+    clearInterval(timer);
+    nextButton.classList.remove('hidden');
+
+   
+    if (correct) {
+        selectedButton.classList.add('correct-animation'); 
+    } else {
+        selectedButton.classList.add('wrong-animation'); 
+    }
+}
+
+function endQuiz() {
+    clearInterval(timer);
+    quizContainer.classList.add('hidden');
+    resultContainer.classList.remove('hidden');
+    scoreElement.innerText = `Você acertou ${score} de ${questions[currentCategory].length} perguntas!`;
+    
+   
+    saveScore(score);
+
+    showRanking();
+}
+
+function saveScore(newScore) {
+   
+    let scores = JSON.parse(localStorage.getItem('scores')) || [];
+
+  
+    scores.push(newScore);
+
+    scores.sort((a, b) => b - a);
+
+    
+    scores = scores.slice(0, 5);
+ 
+    localStorage.setItem('scores', JSON.stringify(scores));
+}
+function showRanking() {
+    const rankingElement = document.createElement('div');
+    rankingElement.innerHTML = `<h3>Ranking:</h3><ul id="ranking-list"></ul>`;
+    
+    const scores = JSON.parse(localStorage.getItem('scores')) || [];
+    
+    const rankingList = document.getElementById('ranking-list');
+    scores.forEach(score => {
+        const li = document.createElement('li');
+        li.innerText = `Pontuação: ${score}`;
+        rankingList.appendChild(li);
+    });
+
+    resultContainer.appendChild(rankingElement);
 }

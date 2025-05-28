@@ -1,11 +1,10 @@
-/* Resetando algumas configurações padrão */
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Estilo geral */
 body {
     font-family: 'Arial', sans-serif;
     background: linear-gradient(135deg, #74ebd5, #acb6e5);
@@ -26,13 +25,11 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-/* Título */
 h1 {
     margin-bottom: 20px;
     color: #333;
 }
 
-/* Botões de categoria */
 #category-selection button {
     background-color: #6c63ff;
     color: white;
@@ -49,7 +46,6 @@ h1 {
     background-color: #574fd6;
 }
 
-/* Quiz */
 .hidden {
     display: none;
 }
@@ -79,7 +75,6 @@ h1 {
     background-color: #d5d5d5;
 }
 
-/* Botão Próxima */
 #next-btn {
     margin-top: 20px;
     background-color: #4CAF50;
@@ -94,14 +89,11 @@ h1 {
     background-color: #45a049;
 }
 
-/* Timer */
 #timer {
     margin-top: 10px;
     font-size: 18px;
     color: #333;
 }
-
-/* Resultado final */
 #result {
     margin-top: 20px;
 }
@@ -110,17 +102,17 @@ h1 {
     font-size: 18px;
     margin: 10px 0;
 }
-/* Cores para respostas certas e erradas */
+
 .correct {
-    background-color: #4CAF50 !important; /* Verde para certo */
+    background-color: #4CAF50 !important; 
     color: white;
 }
 
 .wrong {
-    background-color: #f44336 !important; /* Vermelho para errado */
+    background-color: #f44336 !important; 
     color: white;
 }
-/* Animação suave na troca de perguntas */
+
 .fade-in {
     animation: fadeIn 0.5s ease-in;
 }
@@ -134,4 +126,44 @@ h1 {
         opacity: 1;
         transform: translateY(0);
     }
+}
+
+/* Animações */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
+    100% { transform: translateX(0); }
+}
+
+.correct-animation {
+    animation: fadeIn 0.5s ease-out;
+    background-color: #4CAF50; 
+}
+
+
+.wrong-animation {
+    animation: shake 0.5s ease-out;
+    background-color: #f44336; 
+}
+#ranking-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+#ranking-list li {
+    font-size: 18px;
+    margin: 5px 0;
+    color: #333;
+    font-weight: bold;
 }
