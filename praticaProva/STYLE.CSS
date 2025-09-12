@@ -1,0 +1,40 @@
+
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #4CAF50;
+    padding: 15px 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.nav-container {
+    max-width: 1000px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+}
+
+.nav-container a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+    transition: color 0.3s;
+}
+
+.nav-container a:hover {
+    color: #d4ffd0;
+}
+
+
+body {
+    padding-top: 80px; 
+}
+
+html {
+    scroll-behavior: smooth;
+}
+

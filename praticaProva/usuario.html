@@ -1,0 +1,127 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Tarefas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            padding: 40px;
+        }
+
+        .container {
+            max-width: 500px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        input {
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 12px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            font-size: 16px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .mensagem {
+            margin-top: 20px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .sucesso {
+            color: green;
+        }
+
+        .erro {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Cadastro de Tarefas</h1>
+        <form id="tarefaForm">
+            <label for="titulo">Título da Tarefa:</label>
+            <input type="text" id="titulo" name="titulo" required>
+
+            <label for="data">Data da Tarefa:</label>
+            <input type="date" id="data" name="data" required>
+
+            <button type="submit">Cadastrar Tarefa</button>
+        </form>
+        <p id="mensagemTarefa" class="mensagem"></p>
+    </div>
+
+    <script>
+        document.getElementById('tarefaForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const titulo = document.getElementById('titulo').value.trim();
+            const data = document.getElementById('data').value;
+            const mensagemTarefa = document.getElementById('mensagemTarefa');
+
+            // Validação simples
+            if (!titulo || !data) {
+                mensagemTarefa.textContent = "Preencha todos os campos.";
+                mensagemTarefa.className = "mensagem erro";
+
+                setTimeout(() => {
+                    mensagemTarefa.textContent = "";
+                    mensagemTarefa.className = "mensagem";
+                }, 6000);
+                return;
+            }
+
+            // Exibe mensagem de sucesso
+            mensagemTarefa.textContent = "Tarefa cadastrada com sucesso.";
+            mensagemTarefa.className = "mensagem sucesso";
+
+            // Limpa os campos
+            document.getElementById('tarefaForm').reset();
+
+            // Remove a mensagem após 6 segundos
+            setTimeout(() => {
+                mensagemTarefa.textContent = "";
+                mensagemTarefa.className = "mensagem";
+            }, 6000);
+        });
+    </script>
+
+</body>
+</html>
