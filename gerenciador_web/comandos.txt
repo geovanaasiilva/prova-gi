@@ -1,0 +1,6 @@
+C:\Users\Aluno\AppData\Roaming\Python\Python313\Scripts\django-admin startproject backend
+
+python -m django startproject config
+
+python manage.py makemigrations
+python manage.py migrate
