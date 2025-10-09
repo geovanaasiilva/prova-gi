@@ -1,19 +1,7 @@
 body {
     font-family: 'Comic Sans MS', 'Poppins', cursive, sans-serif;
-    background: #a266c8; /* rosa claro */
-    margin: 0;
-    padding: 0;
-}
-
-.container {
-    width: 80%;
-    max-width: 350px; /* diminuiu o tamanho máximo */
-    margin: 60px auto;
-    background: #094606;
-    padding: 30px;
-    border-radius: 20px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-    border: 4px dashed #5d1591;
+    background: #a266c8; 
+    margin: 100px;
 }
 
 

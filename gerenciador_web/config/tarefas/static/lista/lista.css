@@ -1,7 +1,7 @@
 
 body {
-    margin: 0;
-    padding: 0;
+    margin: 10;
+    padding: 20;
     font-family: 'Lato', sans-serif;
 
     background-color: #f4f4f4;
@@ -29,10 +29,10 @@ hr {
 .tarefa {
     background-color: white;
     border: 1px solid #ddd;
-    border-left: 5px solid #4CAF50;
+    border-left: 5px solid #9e39b8;
     margin: 20px auto;
-    padding: 20px;
-    width: 80%;
+    padding: 10px;
+    width: 60%;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
     transition: transform 0.2s ease-in-out;
 }
@@ -56,7 +56,7 @@ hr {
 
 .tarefa h2 a {
     text-decoration: none;
-    color: #4CAF50;
+    color: #8c4caf;
 }
 
 .tarefa h2 a:hover {
@@ -68,7 +68,7 @@ p {
 }
 
 p a {
-    color: #4CAF50;
+    color: #904caf;
     text-decoration: none;
 }
 

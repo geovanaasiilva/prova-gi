@@ -11,7 +11,7 @@ body {
 
 h1 {
     text-align: center;
-    color: #4CAF50;
+    color: #782b82;
     font-size: 2.2em;
     margin-bottom: 20px;
 }
@@ -19,9 +19,9 @@ h1 {
 
 p {
     background-color: #fff;
-    border-left: 5px solid #4CAF50;
-    padding: 20px;
-    max-width: 800px;
+    border-left: 5px solid #864caf;
+    padding: 10px;
+    max-width: 400px;
     margin: 0 auto 20px auto;
     box-shadow: 0 2px 5px rgba(0,0,0,0.05);
     line-height: 1.6;
